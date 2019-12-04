@@ -3,7 +3,60 @@
 {% block content %}
 
   {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
+      <div class="row h-100">
+        <div class="col-md-6" style="background-color: red;">
+            <!-- TODO: Add background -->
+        </div>
+        <div class="col-md-3 offset-md-1 align-self-center">
+            <img src="https://vignette.wikia.nocookie.net/dreamscape317/images/2/27/Trivia.png/revision/latest?cb=20180817223800"
+                 style="height: 100px; width: 350px; margin-bottom: 50px;"
+                 alt="Tricky Trivia Tournament">
+            <div class="alert alert-danger" role="alert">
+                Invalid username/password
+            </div>
+            <form method="post" action="/accounts/login/">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_username">Username</label>
+                    <input type="text" class="form-control is-invalid" name="username" id="id_username" autofocus required>
+                    <small class="form-text text-muted">Usernames are located in the SQLite database on GitHub</small>
+                </div>
+                <div class="form-group">
+                    <label for="id_password">Password</label>
+                    <input type="password" class="form-control is-invalid" id="id_password" name="password" required>
+                    <small class="form-text text-muted">Please don't forget your password</small>
+                </div>
+                <input type="submit" value="Sign in" class="btn btn-primary"/>
+                <input type="hidden" name="next" value="" />
+            </form>
+        </div>
+    </div>
+  {% else %}
+      <div class="row h-100">
+        <div class="col-md-6" style="background-color: red;">
+            <!-- TODO: Add background -->
+        </div>
+        <div class="col-md-3 offset-md-1 align-self-center">
+            <img src="https://vignette.wikia.nocookie.net/dreamscape317/images/2/27/Trivia.png/revision/latest?cb=20180817223800"
+                 style="height: 100px; width: 350px; margin-bottom: 50px;"
+                 alt="Tricky Trivia Tournament">
+            <form method="post" action="/accounts/login/">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_username">Username</label>
+                    <input type="text" class="form-control" name="username" id="id_username" autofocus required>
+                    <small class="form-text text-muted">Usernames are located in the SQLite database on GitHub</small>
+                </div>
+                <div class="form-group">
+                    <label for="id_password">Password</label>
+                    <input type="password" class="form-control" id="id_password" name="password" required>
+                    <small class="form-text text-muted">Please don't forget your password</small>
+                </div>
+                <input type="submit" value="Sign in" class="btn btn-primary"/>
+                <input type="hidden" name="next" value="" />
+            </form>
+        </div>
+    </div>
   {% endif %}
   
   {% if next %}
@@ -14,21 +67,5 @@
       <p>Please login to see this page.</p>
     {% endif %}
   {% endif %}
-  
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </form>
   
 {% endblock %}
