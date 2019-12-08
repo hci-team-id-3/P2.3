@@ -24,4 +24,4 @@ urlpatterns = [
     path('howtoplay/', how_to_play),
     path('question/<int:index>/', question),
     path('accounts/', include('django.contrib.auth.urls'))
-]
+] 
