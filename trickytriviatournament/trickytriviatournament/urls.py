@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import index, how_to_play, question
+from .views import index, how_to_play, question, main_menu
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('howtoplay/', how_to_play),
+    path('main_menu/', main_menu),
     path('question/<int:index>/', question),
     path('accounts/', include('django.contrib.auth.urls'))
 ] 

@@ -19,6 +19,11 @@ def how_to_play(request: HttpRequest) -> HttpResponse:
 
 	})
 
+def main_menu(request: HttpRequest) -> HttpResponse:
+	return render(request, 'main_menu.html', {
+	
+	})
+
 def question(request: HttpRequest, index = 1) -> HttpResponse:
 	question = Question.objects.all()[index];
 	return render(request, 'question_template.html', {

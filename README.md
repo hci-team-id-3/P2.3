@@ -33,6 +33,44 @@ Plan to move forward would be first developing a game prototype.  Then determine
 * John Yucetas:  Main Menu screen
 * Pratik Patel:  How to play screen
 
+## Task Description
+Users will answer questions from the website, with a popup notifiying them if they got a question right or wrong.
+
+## Playing the game on your own local machine
+In order to play the game, you must have Django installed. Here are the steps:
+
+```
+Windows
+pip install django
+```
+
+```
+Linux
+pip3 install django
+```
+Once Django is installed, run the following commands for your respective machine
+
+```
+Windows
+python manage.py runserver
+```
+
+```
+Linux
+python3 manage.py runserver
+```
+
+To add another user, run the server and visit `127.0.0.1:8000/admin` and use the following username/password:
+
+```
+Username: admin
+Password: Password123!
+```
+
+
+## Hypothesis
+Users will be able to gauge how to play the game using the how to play page on the website. Users will then be able to play the game by answering questions. 
+
 ## Team Members 
 
 * Jason Mba
