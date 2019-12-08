@@ -19,13 +19,14 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import index, how_to_play, question
+from .views import index, how_to_play, question, main_menu
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('howtoplay/', how_to_play),
     path('question/<int:index>/', question),
+    path('main_menu/', main_menu),
     path('accounts/', include('django.contrib.auth.urls'))
 ]
 
