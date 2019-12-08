@@ -15,14 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
+from django.conf.urls.static import static
 
-from .views import index, how_to_play, question, main_menu
+from .views import index, how_to_play, question
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('howtoplay/', how_to_play),
-    path('main_menu/', main_menu),
     path('question/<int:index>/', question),
     path('accounts/', include('django.contrib.auth.urls'))
-] 
+]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
