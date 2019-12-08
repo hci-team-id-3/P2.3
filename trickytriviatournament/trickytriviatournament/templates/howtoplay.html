@@ -1,44 +1,145 @@
 {% if user.is_authenticated %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
+
 <head>
     <meta charset="UTF-8">
     <title>How to Play</title>
 </head>
-<body>
-<img src="https://vignette.wikia.nocookie.net/dreamscape317/images/2/27/Trivia.png/revision/latest?cb=20180817223800" alt="Welcome Image">
-<h1 style = color:#8ecd37 > Welcome to the Tricky Trivia Tournament! </h1>
-<hr>
-<h1> Background Information: </h1>
-<p> This trivia game has a twist compared to your typical trivia game.
-    The game will tests the players knowledge in the following 5 categories
-<ol>
-    <li>Texas Tech University </li>
-    <li>Computer Science </li>
-    <li>Food </li>
-    <li>Sports </li>
-    <li>Anime/Manga </li>
-</ol>
-The game will auto-generate 2 questions from each of these categories to make up the game round.
-</p>
-<hr>
-<h1>  How to Play:  </h1>
-<p>
-    Before the game starts, a counter will count down prompting the user to get ready.
-    The questions will appear one by one with the question at the top of the screen and the four (4)
-    answer choices listed below. </p>
-<p> The player should pick their correct answer at which point the game  will let the player know whether they got it right or not.
-    If the answer was right, then the answer button will highlight green and a ding sound effect will alert the player before moving
-    on to the next question. </p>
-<p> If the answer was incorrect, the answer button will highlight red and a buzzer will sound to alert the player
-    before moving on to the next question. </p>
-<p>
 
-</p>
-<hr>
-<a href="/main_menu/" style="font-size: x-large"> BACK TO MAIN MENU </a>
-<!--<button onclick="main_">Back to Menu</button>  -->
+<style type="text/css">
+    #container {
+        width: 100%;
+        height: 180px;
+        display: table;
+        background-color: #ccc;
+    }
+    #container .image-container {
+        text-align: center;
+        vertical-align: middle;
+
+    }
+    #container .image-container img {
+        max-height: 100%;
+        max-width: 100%;
+    }
+    .pagecontent{
+        background-color: #a0d332;
+        color: #535353;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: xx-large;
+    }
+    .welcome {
+        text-align: center;
+        padding-bottom: auto;
+        font-size: 80px;
+        padding-top: 0;
+    }
+    .background{
+        font-size: 65px;
+        color: #be747d;
+    }
+    .instructions{
+        font-size: 65px;
+        color: #be747d;
+    }
+    .instruction-step{
+        list-style-type: none;
+        counter-reset: elementcounter;
+
+    }
+    .step:before{
+        content: "Step " counter(elementcounter) ". ";
+        counter-increment: elementcounter;
+        font-weight: bold;
+    }
+    .congrats{
+        font-size: 40px;
+        font-weight: bolder;
+        text-align: center;
+    }
+    @keyframes bouncing {
+        0%   {bottom: 0; box-shadow: 0 0 5px rgba(0,0,0,0.5);}
+        100% {bottom: 50px; box-shadow: 0 50px 50px rgba(0,0,0,0.1);}
+    }
+    .float-menu {
+        padding-left: 2px;
+        padding-right: 2px;
+        border-radius: 1px;
+        color: black;
+        font-size: 25px;
+        background-color: #be747d;
+        position: fixed;
+        right: 2%;
+        bottom: 2%;
+        animation: bouncing 0.5s cubic-bezier(0.1,0.25,0.1,1) 0s infinite alternate both;
+    }
+    .cat:before{
+        content: "Category " counter(categorycnt) ". ";
+        counter-increment: categorycnt;
+        font-weight: bold;
+    }
+    .cat-step{
+        list-style-type: none;
+        counter-reset: categorycnt;
+    }
+
+</style>
+
+<body>
+<div id="container">
+    <div class="image-container">
+        <img src="https://vignette.wikia.nocookie.net/dreamscape317/images/2/27/Trivia.png/revision/latest?cb=20180817223800" alt="Welcome Image"/>
+    </div>
+</div>
+
+<a href="/main_menu/">
+    <div class="float-menu">
+        <p>Back to Menu</p>
+    </div>
+</a>
+
+
+<div class="pagecontent">
+    <h1 class="welcome">Welcome to The Tricky Trivia Tournament! </h1>
+    <h2 class = "background"> Background Information</h2>
+    <p>This trivia game has a twist compared to your typical trivia game.
+        The game will test the players knowledge in the following 5 categories:
+    </p>
+    <ol class="cat-step">
+        <li class="cat">Texas Tech University</li>
+        <li class="cat">Computer Science</li>
+        <li class="cat">Food</li>
+        <li class="cat">Sports</li>
+        <li class="cat">Anime/Manga</li>
+    </ol>
+    <p>Each game round is 10 questions, consisting of 2 from each category.</p>
+    <h2 class="instructions">Instructions</h2>
+    <p> When playing for the first time, user must connect to server
+        first then log-in using admin credentials. After doing so, they must create
+        their own customized log-in credentials.
+    </p>
+    <ol class="instruction-step">
+        <li class="step">Player log-in</li>
+        <li class="step">Navigate main-menu</li>
+        <li class="step">Learn how to play the game by clicking on 'How to Play'</li>
+        <li class="step">Read through instructions then click 'Back to Menu'</li>
+        <li class="step">Track high scores on the 'Leaderboard' to see where you stand</li>
+        <li class="step">When you're done, click 'Back to Menu'</li>
+        <li class="step">Start a new game</li>
+        <li class="step">Questions will appear 1 by 1, play must answer to move to next question</li>
+        <li class="step">Select an answer</li>
+        <li class="step">Feedback is given on screen both visually and via sound effects before moving on</li>
+        <li class="step">Go through all 10 questions in the game round</li>
+        <li class="step">At the end of the round, your score will be displayed on screen</li>
+        <li class="step">Click 'Play Again' or 'Back to Menu'</li>
+    </ol>
+    <p class="congrats">Congratulations, you are now ready to play the game!  Goodluck! </p>
+</div>
 </body>
 </html>
 
