@@ -25,4 +25,4 @@ urlpatterns = [
     path('main_menu/', main_menu),
     path('question/<int:index>/', question),
     path('accounts/', include('django.contrib.auth.urls'))
-]
+] 

@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Question ID</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+  <style>
+      .ui container {
+
+      }
+  </style>  
 </head>
 <body>
 <script>
     function validateAnswerChoice() {
-        if(document.getElementById('inputChoice1').checked) {
+       /* if(document.getElementById('inputChoice1').checked) {
             var selected_answer = document.getElementById('choice1').title;
             if (selected_answer == {{ question.answer }}) {
                 //alert("NICEEE");
@@ -54,18 +62,47 @@
                 alert("Incorrect Answer!");
                 window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}};
             }
-        }
+        }*/
 
     }
 </script>
-    <div>
-            <h3>{{ question.category }}</h3>
-            <p>{{ question.question }}</p><br>
-            <input type = "radio" id = "inputChoice1"><label id = "choice1" title="1" value = "1" >{{ question.choice1 }}</label><br>
-            <input type = "radio" id = "inputChoice2"><label id = "choice2" title="2">{{ question.choice2 }}</label><br>
-            <input type = "radio" id = "inputChoice3"><label id = "choice3" title="3">{{ question.choice3 }}</label><br>
-            <input type = "radio" id = "inputChoice4"><label id = "choice4" title="4">{{ question.choice4 }}</label><br>
-            <button onclick = "validateAnswerChoice()">Submit</button>
+
+        <div class = "grouped fields">
+            {% load static %}
+            <audio>
+                <source src = "{% static 'Jeopardy-theme-song.mp3' %}" type="audio/mpeg">
+            </audio>
+            <div class = "ui center aligned container">
+                <h3>{{ question.category }}</h3>
+                <h3>{{ question.question }}</h3><br>
+                <div class = "ui center aligned container">
+                    <div class = "field">
+                        <div class = "ui radio checkbox">
+                            <input type = "radio" name = "inputChoice" >
+                            <label id = "choice1" title="1" >{{ question.choice1 }}</label>
+                        </div>
+                    </div>
+                    <div class = "field">
+                        <div class = "ui radio checkbox">
+                            <input type = "radio" name = "inputChoice">
+                            <label id = "choice2" title="2">{{ question.choice2 }}</label>
+                        </div>
+                    </div>
+                    <div class = "field">
+                        <div class = "ui radio checkbox">
+                            <input type = "radio" name = "inputChoice">
+                            <label id = "choice3" title="3">{{ question.choice3 }}</label>
+                        </div>
+                    </div>
+                    <div class = "field">
+                        <div class = "ui radio checkbox">
+                            <input type = "radio" name = "inputChoice">
+                            <label id = "choice4" title="4">{{ question.choice4 }}</label><br>
+                        </div>
+                    </div>
+                        <button class = "ui primary button" onclick = "validateAnswerChoice()">Submit</button>
+            </div>
     </div>
+
 </body>
 </html>
