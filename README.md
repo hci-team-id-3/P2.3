@@ -71,7 +71,7 @@ Password: Password123!
 ## Hypothesis
 Users will be able to gauge how to play the game using the how to play page on the website. Users will then be able to play the game by answering questions. 
 
-##Final Game design
+## Final Game design
 
 
 ## Team Members 
