@@ -34,15 +34,8 @@
 </head>
 <body>
 <script>
-    function validateAnswerChoice() {
-    document.cookie = "score = 0";
-    var current_score = document.cookie.replace(/(?:(?:^|.*;\s*)score\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-    current_score = parseInt(current_score);
-    current_score = current_score + 1;
-    console.log(typeof current_score);
-    //current_score = current_score + 1;
-    alert(current_score);
-       if(document.getElementById('choice1').checked) {
+    function validateAnswerChoice() {    
+   if(document.getElementById('choice1').checked) {
             var selected_answer = document.getElementById('choice1').title;
             if (selected_answer == {{ question.answer }}) {
                 alert("Correct Answer!");

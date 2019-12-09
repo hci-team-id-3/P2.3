@@ -24,6 +24,11 @@ def main_menu(request: HttpRequest) -> HttpResponse:
 	
 	})
 
+def results(request: HttpRequest) -> HttpResponse:
+        return render(request, 'results.html', {
+
+        })
+
 def question(request: HttpRequest, index: int = 1, correct: str = None) -> HttpResponse:
 	value = request.COOKIES.get('score')
 	if value is None:
