@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <title>Question ID</title>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
-  <style>
+    <style>
 
 
-      #container {
-          width: 100%;
-          height: 100%;
-          display: table;
-          background-color: #ccc;
-          text-align: center;
+        #container {
+            width: 100%;
+            height: 100%;
+            display: table;
+            background-color: #ccc;
+            text-align: center;
 
-      }
+        }
 
       #question-answers {
           background-color: #a0d332;
@@ -30,51 +30,44 @@
           font-size: large;
           text-align: center;
       }
-  </style>  
+  </style>
 </head>
 <body>
 <script>
-    function validateAnswerChoice() {    
-   if(document.getElementById('choice1').checked) {
+    function validateAnswerChoice() {
+       if(document.getElementById('choice1').checked) {
             var selected_answer = document.getElementById('choice1').title;
             if (selected_answer == {{ question.answer }}) {
                 alert("Correct Answer!");
-                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} + '/correct/';
-            }
-            else {
+                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} +'/correct/';
+            } else {
                 alert("Incorrect Answer!");
                 window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}};
             }
-        }
-        else if(document.getElementById('choice2').checked) {
+        } else if (document.getElementById('choice2').checked) {
             var selected_answer = document.getElementById('choice2').title;
             if (selected_answer == {{ question.answer }}) {
                 alert("Correct Answer!");
-                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} + '/correct/';
-            }
-            else {
+                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} +'/correct/';
+            } else {
                 alert("Incorrect Answer!");
                 window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}};
             }
-        }
-        else if(document.getElementById('choice3').checked) {
+        } else if (document.getElementById('choice3').checked) {
             var selected_answer = document.getElementById('choice3').title;
             if (selected_answer == {{ question.answer }}) {
                 alert("Correct Answer!");
-                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} + '/correct/';
-            }
-            else {
+                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} +'/correct/';
+            } else {
                 alert("Incorrect Answer!");
                 window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}};
             }
-        }
-        else if(document.getElementById('choice4').checked) {
+        } else if (document.getElementById('choice4').checked) {
             var selected_answer = document.getElementById('choice4').title;
             if (selected_answer == {{ question.answer }}) {
                 alert("Correct Answer!");
-                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} + '/correct/';
-            }
-            else {
+                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} +'/correct/';
+            } else {
                 alert("Incorrect Answer!");
                 window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}};
             }
@@ -83,46 +76,47 @@
     }
 </script>
 
-        <div class = "grouped fields">
-            {% load static %}
-            <audio>
-                <source src = "{{MEDIA_URL}}Jeopardy-theme-song.mp3"type="audio/mpeg">
-            </audio>
-            <div id = "container">
-                <div class = "image-container">
-                    <img src = "https://vignette.wikia.nocookie.net/dreamscape317/images/2/27/Trivia.png/revision/latest?cb=20180817223800" alt="Welcome Image"/>
-                </div>
-            </div>
-            <div class = "question-answers" id = "question-answers">
-                    <h1>Topic: {{ question.category }}</h1>
-                    <h1>{{ question.question }}</h1><br>
-                    <div class = "field">
-                        <div class = "ui radio checkbox">
-                            <input type = "radio" name = "inputChoice" id = "choice1" title = "1" >
-                            <label for = "choice1" style = "font-size: 150%">{{ question.choice1 }}</label><br>
-                        </div>
-                    </div>
-                    <div class = "field">
-                        <div class = "ui radio checkbox">
-                            <input type = "radio" name = "inputChoice" id = "choice2" title = "2">
-                            <label for = "choice2" style = "font-size: 150%">{{ question.choice2 }}</label><br>
-                        </div>
-                    </div>
-                    <div class = "field">
-                        <div class = "ui radio checkbox">
-                            <input type = "radio" name = "inputChoice" id = "choice3" title = "3">
-                            <label for = "choice3" style = "font-size: 150%">{{ question.choice3 }}</label><br>
-                        </div>
-                    </div>
-                    <div class = "field">
-                        <div class = "ui radio checkbox">
-                            <input type = "radio" name = "inputChoice" id = "choice4" title = "4">
-                            <label for = "choice4" style = "font-size: 150%">{{ question.choice4 }}</label><br><br><br>
-                        </div>
-                    </div>
-                        <button class = "ui primary button" onclick = "validateAnswerChoice()">Next</button>
-            </div>
+<div class="grouped fields">
+    {% load static %}
+    <audio src="{% static 'trickytriviatournament/troll.mp3' %}" autoplay>
+        <p>If you are reading this, it is because your browser does not support the audio element. </p>
+    </audio>
+    <div id="container">
+        <div class="image-container">
+            <img src="https://vignette.wikia.nocookie.net/dreamscape317/images/2/27/Trivia.png/revision/latest?cb=20180817223800"
+                 alt="Welcome Image"/>
+        </div>
     </div>
+    <div class="question-answers" id="question-answers">
+        <h1>Topic: {{ question.category }}</h1>
+        <h1>{{ question.question }}</h1><br>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input type="radio" name="inputChoice" id="choice1" title="1">
+                <label for="choice1" style="font-size: 150%">{{ question.choice1 }}</label><br>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input type="radio" name="inputChoice" id="choice2" title="2">
+                <label for="choice2" style="font-size: 150%">{{ question.choice2 }}</label><br>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input type="radio" name="inputChoice" id="choice3" title="3">
+                <label for="choice3" style="font-size: 150%">{{ question.choice3 }}</label><br>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input type="radio" name="inputChoice" id="choice4" title="4">
+                <label for="choice4" style="font-size: 150%">{{ question.choice4 }}</label><br><br><br>
+            </div>
+        </div>
+        <button class="ui primary button" onclick="validateAnswerChoice()">Next</button>
+    </div>
+</div>
 
 </body>
 </html>
