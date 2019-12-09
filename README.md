@@ -72,7 +72,7 @@ Password: Password123!
 Users will be able to gauge how to play the game using the how to play page on the website. Users will then be able to play the game by answering questions. 
 
 ## Final Game design
-
+![](P2Final.3.gif)
 
 ## Team Members 
 
