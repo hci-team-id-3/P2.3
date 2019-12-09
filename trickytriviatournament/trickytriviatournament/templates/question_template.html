@@ -35,7 +35,7 @@
 <body>
 <script>
     function validateAnswerChoice() {
-    document.cookie = score = 0;
+    document.cookie = "score = 0";
     var current_score = document.cookie.replace(/(?:(?:^|.*;\s*)score\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     current_score = parseInt(current_score);
     current_score = current_score + 1;
