@@ -46,7 +46,7 @@
             var selected_answer = document.getElementById('choice1').title;
             if (selected_answer == {{ question.answer }}) {
                 alert("Correct Answer!");
-                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}};
+                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} + '/correct/';
             }
             else {
                 alert("Incorrect Answer!");
@@ -57,7 +57,7 @@
             var selected_answer = document.getElementById('choice2').title;
             if (selected_answer == {{ question.answer }}) {
                 alert("Correct Answer!");
-                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}};
+                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} + '/correct/';
             }
             else {
                 alert("Incorrect Answer!");
@@ -68,7 +68,7 @@
             var selected_answer = document.getElementById('choice3').title;
             if (selected_answer == {{ question.answer }}) {
                 alert("Correct Answer!");
-                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}};
+                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} + '/correct/';
             }
             else {
                 alert("Incorrect Answer!");
@@ -79,7 +79,7 @@
             var selected_answer = document.getElementById('choice4').title;
             if (selected_answer == {{ question.answer }}) {
                 alert("Correct Answer!");
-                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}};
+                window.location.href = "http://127.0.0.1:8000/question/" + {{question.id}} + '/correct/';
             }
             else {
                 alert("Incorrect Answer!");

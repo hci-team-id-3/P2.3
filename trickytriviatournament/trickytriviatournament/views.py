@@ -24,9 +24,27 @@ def main_menu(request: HttpRequest) -> HttpResponse:
 	
 	})
 
-def question(request: HttpRequest, index = 1) -> HttpResponse:
+def question(request: HttpRequest, index: int = 1, correct: str = None) -> HttpResponse:
+	value = request.COOKIES.get('score')
+	if value is None:
+		# Cookie never set, initialize to zero
+		if correct is not None:
+			score = 1
+		else:
+			score = 0
+	else:
+		if correct is not None:
+			# Get the old score and increment by 1
+			cscore = int(request.COOKIES.get('score'))
+			score = str(cscore + 1)
+		else:
+			score = request.COOKIES.get('score')
+
 	question = Question.objects.all()[index];
-	return render(request, 'question_template.html', {
+	response = render(request, 'question_template.html', {
 		'index': index,
 		'question': question
 	})
+	response.set_cookie('score', score)
+
+	return response
