@@ -28,7 +28,7 @@ At the moment, we have a rough sketch (located above) of what the game interface
 Plan to move forward would be first developing a game prototype.  Then determine what technology/languages we would need to use to create the user interface.  After having a very basic game prototype done, we would continue to enhance the game design to look more appealing to the user.  
 
 * Jason Mba:  Questions & Results Screen 
-* Michael Kiros:  Log-in scren 
+* Michael Kiros:  Log-in screen 
 * Ukoh Ndukwo:  Leaderboard screen
 * John Yucetas:  Main Menu screen
 * Pratik Patel:  How to play screen
